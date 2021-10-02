@@ -14,6 +14,16 @@ def change(x,y):
 
 	aim.x=x	aim.y=y
 
+def move():
+    "Move snake forward one segment."
+    head = snake[-1].copy()
+    head.move(aim)
+
+    if not inside(head) or head in snake:
+        square(head.x, head.y, 9, 'red')
+        update()
+        return
+	
 def inside(head):
 
     "Return True if head inside boundaries."
